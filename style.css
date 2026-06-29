@@ -109,7 +109,7 @@ img {
 .tape::before {
   top: -12px;
   left: 18px;
-  width: 100px;
+  width: 140px;
   transform: rotate(-12deg);
 }
 
