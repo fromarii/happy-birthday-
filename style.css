@@ -1,148 +1,31 @@
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #f5e9dc;
+  height: 100vh;
+  overflow: hidden;
 }
 
-body{
-background:#efe7dc;
-font-family:Poppins,sans-serif;
-display:flex;
-justify-content:center;
-align-items:center;
-height:100vh;
-overflow:hidden;
+.screen {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 30px;
+  box-sizing: border-box;
+  flex-direction: column;
+  cursor: pointer;
 }
 
-.cover{
-background:#fffdf9;
-width:85%;
-max-width:500px;
-padding:60px 40px;
-border-radius:18px;
-box-shadow:0 15px 40px rgba(0,0,0,.15);
-text-align:center;
-position:relative;
+#text {
+  font-size: 20px;
+  line-height: 1.6;
+  max-width: 600px;
 }
 
-.cover::before{
-content:"";
-position:absolute;
-top:-15px;
-left:40px;
-width:90px;
-height:28px;
-background:#d8c1a4;
-transform:rotate(-6deg);
-opacity:.8;
-}
-
-h1{
-font-family:"Playfair Display",serif;
-font-size:48px;
-margin-bottom:15px;
-color:#3b2f2f;
-}
-
-p{
-font-family:Caveat,cursive;
-font-size:34px;
-margin-bottom:45px;
-color:#7a5b4d;
-}
-
-button{
-padding:15px 35px;
-border:none;
-border-radius:50px;
-background:#7f5a50;
-color:white;
-font-size:18px;
-cursor:pointer;
-transition:.3s;
-}
-
-button:hover{
-transform:scale(1.05);
-background:#69473f;
-}
-.subtitle{
-font-size:38px;
-margin-bottom:15px;
-}
-
-.small{
-font-family:Poppins,sans-serif;
-font-size:15px;
-color:#8b7a70;
-margin-bottom:35px;
-}
-
-.tape{
-position:absolute;
-width:90px;
-height:28px;
-background:#d7c1a0;
-opacity:.8;
-}
-
-.tape-left{
-top:-14px;
-left:35px;
-transform:rotate(-8deg);
-}
-
-.tape-right{
-top:-14px;
-right:35px;
-transform:rotate(8deg);
-}
-.cover {
-  transition: all 0.5s ease;
-}
-
-.hide {
-  opacity: 0;
-  transform: translateY(25px);
-}
-.scrapbook {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 15px;
+.hint {
   margin-top: 20px;
-}
-
-.card {
-  background: #fff;
-  padding: 10px;
-  border-radius: 12px;
-  box-shadow: 0 8px 20px rgba(0,0,0,0.1);
-  transform: rotate(-1deg);
-}
-
-.card img {
-  width: 100%;
-  border-radius: 10px;
-}
-
-.card p {
-  font-size: 14px;
-  font-family: Poppins, sans-serif;
-  margin-top: 8px;
-}
-.card {
-  position: relative;
-}
-
-.card::before {
-  content: "";
-  position: absolute;
-  top: -10px;
-  left: 20px;
-  width: 60px;
-  height: 18px;
-  background: #d8c1a4;
-  transform: rotate(-8deg);
-  opacity: 0.7;
-  border-radius: 3px;
+  font-size: 12px;
+  opacity: 0.6;
 }
