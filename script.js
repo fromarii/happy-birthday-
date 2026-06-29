@@ -60,113 +60,88 @@ let currentPage = -1;
 
 document.getElementById("startBtn").addEventListener("click", nextPage);
 
-document.addEventListener("click", function(e){
-
-  if(e.target.id==="nextBtn"){
+document.addEventListener("click", function (e) {
+  if (e.target && e.target.id === "nextBtn") {
     nextPage();
   }
-
 });
 
-function nextPage(){
-
+function nextPage() {
   currentPage++;
 
-  const cover=document.querySelector(".cover");
+  const cover = document.querySelector(".cover");
 
   cover.classList.add("hide");
 
-  setTimeout(()=>{
-
+  setTimeout(() => {
     showPage();
-
     cover.classList.remove("hide");
-
-  },500);
-
+  }, 500);
 }
 
-function showPage(){
+function showPage() {
 
-  const page=pages[currentPage];
+  const page = pages[currentPage];
+  const cover = document.querySelector(".cover");
 
-  const cover=document.querySelector(".cover");
+  if (page.type === "intro") {
 
-  if(page.type==="intro"){
-
-    cover.innerHTML=`
-
+    cover.innerHTML = `
       <h1>${page.title}</h1>
-
       <p>${page.text}</p>
-
       <button id="nextBtn">Next →</button>
-
     `;
-
   }
 
-  else if(page.type==="photo"){
+  else if (page.type === "photo") {
 
-    cover.innerHTML=`
-
+    cover.innerHTML = `
       <h1>${page.title}</h1>
 
       <div class="memory-page">
 
         <div class="photo-frame">
-
-          <img src="${page.image}">
-
+          <img src="${page.image}" alt="">
         </div>
 
         <p class="caption">
-
           ${page.caption}
-
         </p>
 
         <div class="doodles">
-
           ✦ ♡ ↗ ✿
-
         </div>
 
       </div>
 
       <button id="nextBtn">Next →</button>
-
     `;
+  }  else if (page.type === "letter") {
 
-  }
-    else if(page.type==="letter"){
-
-    cover.innerHTML=`
-
+    cover.innerHTML = `
       <h1>${page.title}</h1>
 
       <p class="letter">
-
-        ${page.text.replace(/\n/g,"<br><br>")}
-
+        ${page.text.replace(/\n/g, "<br><br>")}
       </p>
 
       <button id="nextBtn">Next →</button>
-
     `;
 
   }
 
-  else if(page.type==="end"){
+  else if (page.type === "end") {
 
-    cover.innerHTML=`
-
+    cover.innerHTML = `
       <h1>${page.title}</h1>
 
       <p>${page.text}</p>
 
-      <button onclick="location.reload()">Start Again ♡</button>
-
+      <button onclick="location.reload()">
+        Start Again ♡
+      </button>
     `;
 
   }
+
+}
