@@ -55,10 +55,10 @@ const cover = document.querySelector(".cover");
 const pageBox = document.querySelector(".page");
 const openBtn = document.getElementById("openBtn");
 
-/* OPEN */
+/* OPEN BUTTON */
 openBtn.addEventListener("click", () => {
-  document.querySelector(".cover").classList.add("hidden");
-  pageBox.classList.remove("hidden");
+  cover.style.display = "none";
+  pageBox.style.display = "flex";
   current = 0;
   renderPage();
 });
@@ -67,45 +67,61 @@ openBtn.addEventListener("click", () => {
 function renderPage() {
   const page = pages[current];
 
-  let html = "";
+  pageBox.classList.add("fade");
 
-  if (page.type === "intro") {
-    html = `
-      <h1>${page.title}</h1>
-      <p>${page.text}</p>
-      <button id="nextBtn">Next</button>
-    `;
-  }
+  setTimeout(() => {
+    let html = "";
 
-  else if (page.type === "photo") {
-    html = `
-      <img src="${page.image}" />
-      <p>${page.caption}</p>
-      <button id="nextBtn">Next</button>
-    `;
-  }
+    if (page.type === "intro") {
+      html = `
+        <div>
+          <h1>${page.title}</h1>
+          <p>${page.text}</p>
+          <button id="nextBtn">Next</button>
+        </div>
+      `;
+    }
 
-  else if (page.type === "letter") {
-    html = `
-      <h1>${page.title}</h1>
-      <p>${page.text.replace(/\n/g, "<br>")}</p>
-      <button id="nextBtn">Next</button>
-    `;
-  }
+    else if (page.type === "photo") {
+      html = `
+        <div>
+          <img src="${page.image}" />
+          <p>${page.caption}</p>
+          <button id="nextBtn">Next</button>
+        </div>
+      `;
+    }
 
-  else if (page.type === "end") {
-    html = `
-      <p>${page.text}</p>
-    `;
-  }
+    else if (page.type === "letter") {
+      html = `
+        <div>
+          <h1>${page.title}</h1>
+          <p>${page.text.replace(/\n/g, "<br>")}</p>
+          <button id="nextBtn">Next</button>
+        </div>
+      `;
+    }
 
-  pageBox.innerHTML = html;
+    else if (page.type === "end") {
+      html = `
+        <div>
+          <p>${page.text}</p>
+        </div>
+      `;
+    }
+
+    pageBox.innerHTML = html;
+
+    pageBox.classList.remove("fade");
+  }, 200);
 }
 
-/* NEXT */
+/* NEXT BUTTON */
 document.addEventListener("click", (e) => {
   if (e.target && e.target.id === "nextBtn") {
     current++;
-    renderPage();
+    if (current < pages.length) {
+      renderPage();
+    }
   }
 });
