@@ -57,6 +57,7 @@ img {
   display: block;
   margin: 0 auto 10px auto;
 }
+
 /* tape effect for first card */
 .tape {
   position: relative;
@@ -116,20 +117,8 @@ img {
 .tape::after {
   display: none;
 }
-.last-tab {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  height: 120px; /* adjust if needed */
-}
 
-.last-tab a {
-  color: #000;
-  text-decoration: none;
-  font-size: 14px;
-  opacity: 0.85;
-}
+/* Last tab */
 .last-tab {
   display: flex;
   flex-direction: column;
@@ -139,8 +128,16 @@ img {
   text-align: center;
 }
 
+.last-tab p {
+  margin: 0;
+}
+
 .gift-link {
   color: #7b5c4d;
   text-decoration: underline;
   font-size: 1rem;
+}
+
+.gift-link:hover {
+  opacity: 0.7;
 }
