@@ -1,13 +1,16 @@
-const button = document.getElementById("startBtn");
+document.getElementById("startBtn").addEventListener("click",function(){
 
-button.addEventListener("click", () => {
+document.querySelector(".cover").innerHTML=`
 
-    document.getElementById("title").innerHTML =
-    "Happy Birthday, Rafid ❤️";
+<h1>Hi Birthday Boy. 🤍</h1>
 
-    document.getElementById("message").innerHTML =
-    "This little website was made especially for you.";
+<p>I couldn't wrap this in paper...
 
-    button.innerHTML = "Continue ➜";
+so I wrapped it in code.</p>
+
+<button id="nextBtn">Next →</button>
+
+`;
 
 });
+    
