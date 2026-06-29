@@ -13,3 +13,8 @@ document.getElementById("startBtn").addEventListener("click", function () {
     cover.classList.remove("hide");
   }, 500);
 });
+document.addEventListener("click", function (e) {
+  if (e.target && e.target.id === "nextBtn") {
+    alert("Next page coming next step 😄");
+  }
+});
