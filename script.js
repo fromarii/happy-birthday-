@@ -102,13 +102,19 @@ function renderPage() {
       `;
     }
 
-    else if (page.type === "end") {
-      html = `
-        <div>
-          <p>${page.text}</p>
-        </div>
-      `;
-    }
+  else if (page.type === "end") {
+  html = `
+    <div class="last-tab">
+      <p style="font-size: 2rem;">${page.text}</p>
+
+      <a href="https://digibouquet.net/create-bouquet?b=JTdCJTIyZiUyMiUzQSU1QiUyMnJvc2UlMjIlMkMlMjJjYW1lbGxpYSUyMiUyQyUyMnR1bGlwJTIyJTJDJTIybGlseSUyMiUyQyUyMnBlb255JTIyJTJDJTIybG90dXMlMjIlMkMlMjJvcmNoaWQlMjIlMkMlMjJkYWlzeSUyMiU1RCUyQyUyMmclMjIlM0ElMjJncmVlbmVyeTQlMjIlMkMlMjJjJTIyJTNBJTIyYnVybnQtZWRnZSUyMiUyQyUyMnRvJTIyJTNBJTIyUmFmaWQlMjIlMkMlMjJmciUyMiUzQSUyMkFyaWklMjIlMkMlMjJtJTIyJTNBJTIySGFwcHklMjBCaXJ0aGRheSUyMGJhYnklMkMlMjBJJTIwbG92ZSUyMHlvdSUyMHNvJTIwc28lMjBtdWNoJTIwJUYwJTlGJTkyJThCJTIyJTJDJTIyYmclMjIlM0ElMjJtaWRuaWdodC1nYXJkZW4lMjIlN0Q="
+         target="_blank"
+         class="gift-link">
+        here's something for my birthday boy ♡
+      </a>
+    </div>
+  `;
+}
 
     pageBox.innerHTML = html;
 
