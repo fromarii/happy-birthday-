@@ -1,52 +1,172 @@
-document.getElementById("startBtn").addEventListener("click", function () {
-  const cover = document.querySelector(".cover");
+const pages = [
+  {
+    type: "intro",
+    title: "Hi Birthday Boy. 🤍",
+    text: "I couldn't wrap this in paper... so I wrapped it in code."
+  },
+
+  {
+    type: "photo",
+    title: "Chapter One 🤍",
+    image: "images/photo1.jpeg",
+    caption: "my batman 🦇🤍"
+  },
+
+  {
+    type: "photo",
+    title: "Chapter Two 🤍",
+    image: "images/photo2.jpeg",
+    caption: "also my superman 🦸🏻‍♂️🤍"
+  },
+
+  {
+    type: "photo",
+    title: "Chapter Three 🤍",
+    image: "images/photo3.jpeg",
+    caption: "cutest kid ever 🧸🤍"
+  },
+
+  {
+    type: "photo",
+    title: "Chapter Four 🤍",
+    image: "images/photo4.jpeg",
+    caption: "forever my baby ♡"
+  },
+
+  {
+    type: "letter",
+    title: "A little letter for you 🤍",
+    text: `Happy Birthday, my jaan.
+
+Today is all about you.
+
+Even though this little scrapbook is made of code, every page was made with love.
+
+Thank you for being my safe place, my biggest comfort, and my favourite person.
+
+I hope this birthday brings you every bit of happiness you deserve.
+
+I love you. 🤍`
+  },
+
+  {
+    type: "end",
+    title: "The End 🤍",
+    text: "There's one more surprise waiting for you..."
+  }
+];
+
+let currentPage = -1;
+
+document.getElementById("startBtn").addEventListener("click", nextPage);
+
+document.addEventListener("click", function(e){
+
+  if(e.target.id==="nextBtn"){
+    nextPage();
+  }
+
+});
+
+function nextPage(){
+
+  currentPage++;
+
+  const cover=document.querySelector(".cover");
 
   cover.classList.add("hide");
 
-  setTimeout(() => {
-    cover.innerHTML = `
-      <h1>Hi Birthday Boy. 🤍</h1>
-      <p>I couldn't wrap this in paper... so I wrapped it in code.</p>
-      <button id="nextBtn">Next →</button>
-    `;
+  setTimeout(()=>{
+
+    showPage();
 
     cover.classList.remove("hide");
-  }, 500);
-});
 
-document.addEventListener("click", function (e) {
-  if (e.target && e.target.id === "nextBtn") {
+  },500);
 
-    const cover = document.querySelector(".cover");
+}
 
-    cover.classList.add("hide");
+function showPage(){
 
-    setTimeout(() => {
+  const page=pages[currentPage];
 
-      cover.innerHTML = `
-        <h1>Chapter One 🤍</h1>
+  const cover=document.querySelector(".cover");
 
-        <div class="memory-page">
+  if(page.type==="intro"){
 
-          <div class="photo-frame">
-            <img src="images/photo1.jpeg" alt="Photo 1">
-          </div>
+    cover.innerHTML=`
 
-          <p class="caption">
-            the cutest boy ever ♡
-          </p>
+      <h1>${page.title}</h1>
 
-          <div class="doodles">
-            ✦ ♡ ↖
-          </div>
+      <p>${page.text}</p>
+
+      <button id="nextBtn">Next →</button>
+
+    `;
+
+  }
+
+  else if(page.type==="photo"){
+
+    cover.innerHTML=`
+
+      <h1>${page.title}</h1>
+
+      <div class="memory-page">
+
+        <div class="photo-frame">
+
+          <img src="${page.image}">
 
         </div>
 
-        <button id="nextBtn">Next →</button>
-      `;
+        <p class="caption">
 
-      cover.classList.remove("hide");
+          ${page.caption}
 
-    }, 500);
+        </p>
+
+        <div class="doodles">
+
+          ✦ ♡ ↗ ✿
+
+        </div>
+
+      </div>
+
+      <button id="nextBtn">Next →</button>
+
+    `;
+
   }
-});
+    else if(page.type==="letter"){
+
+    cover.innerHTML=`
+
+      <h1>${page.title}</h1>
+
+      <p class="letter">
+
+        ${page.text.replace(/\n/g,"<br><br>")}
+
+      </p>
+
+      <button id="nextBtn">Next →</button>
+
+    `;
+
+  }
+
+  else if(page.type==="end"){
+
+    cover.innerHTML=`
+
+      <h1>${page.title}</h1>
+
+      <p>${page.text}</p>
+
+      <button onclick="location.reload()">Start Again ♡</button>
+
+    `;
+
+  }
