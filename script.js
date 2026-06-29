@@ -24,29 +24,26 @@ document.addEventListener("click", function (e) {
     setTimeout(() => {
 
       cover.innerHTML = `
-  <h1>Our scrapbook 🤍</h1>
+        <h1>Chapter One 🤍</h1>
 
-  <div class="scrapbook">
+        <div class="memory-page">
 
-    <div class="card">
-      <img src="https://via.placeholder.com/200" />
-      <p>Memory 1</p>
-    </div>
+          <div class="photo-frame">
+            <img src="images/photo1.jpeg" alt="Photo 1">
+          </div>
 
-    <div class="card">
-      <img src="https://via.placeholder.com/200" />
-      <p>Memory 2</p>
-    </div>
+          <p class="caption">
+            the cutest boy ever ♡
+          </p>
 
-    <div class="card">
-      <img src="https://via.placeholder.com/200" />
-      <p>Memory 3</p>
-    </div>
+          <div class="doodles">
+            ✦ ♡ ↖
+          </div>
 
-  </div>
+        </div>
 
-  <button id="nextBtn">Next →</button>
-`;
+        <button id="nextBtn">Next →</button>
+      `;
 
       cover.classList.remove("hide");
 
