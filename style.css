@@ -130,3 +130,17 @@ img {
   font-size: 14px;
   opacity: 0.85;
 }
+.last-tab {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 18px;
+  text-align: center;
+}
+
+.gift-link {
+  color: #7b5c4d;
+  text-decoration: underline;
+  font-size: 1rem;
+}
