@@ -1,16 +1,26 @@
-document.getElementById("startBtn").addEventListener("click",function(){
+document.getElementById("startBtn").addEventListener("click", function () {
 
-document.querySelector(".cover").innerHTML=`
+  const cover = document.querySelector(".cover");
 
-<h1>Hi Birthday Boy. 🤍</h1>
+  cover.classList.add("hide");
 
-<p>I couldn't wrap this in paper...
+  setTimeout(() => {
 
-so I wrapped it in code.</p>
+    cover.innerHTML = `
 
-<button id="nextBtn">Next →</button>
+      <h1>Hi Birthday Boy. 🤍</h1>
 
-`;
+      <p>I couldn't wrap this in paper...
+
+      so I wrapped it in code.</p>
+
+      <button id="nextBtn">Next →</button>
+
+    `;
+
+    cover.classList.remove("hide");
+
+  }, 600);
 
 });
     
