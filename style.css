@@ -117,3 +117,17 @@ img {
   right: 18px;
   transform: rotate(10deg);
 }
+.last-tab {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  height: 120px; /* adjust if needed */
+}
+
+.last-tab a {
+  color: #000;
+  text-decoration: none;
+  font-size: 14px;
+  opacity: 0.85;
+}
