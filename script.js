@@ -61,9 +61,16 @@ openBtn.addEventListener("click", () => {
   cover.style.display = "none";
   pageBox.style.display = "flex";
 
-  music.play().catch((err) => {
-    console.log("Couldn't play music:", err);
+music.volume = 0.5;
+music.currentTime = 0;
+
+const playPromise = music.play();
+
+if (playPromise !== undefined) {
+  playPromise.catch(error => {
+    alert("Tap anywhere once to start the music.");
   });
+}
 
   current = 0;
   renderPage();
