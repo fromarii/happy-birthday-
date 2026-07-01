@@ -58,19 +58,20 @@ const music = document.getElementById("bgMusic");
 
 /* OPEN BUTTON */
 openBtn.addEventListener("click", () => {
+
   cover.style.display = "none";
   pageBox.style.display = "flex";
 
-music.volume = 0.5;
-music.currentTime = 0;
+  music.volume = 0.5;
+  music.currentTime = 0;
 
-const playPromise = music.play();
-
-if (playPromise !== undefined) {
-  playPromise.catch(error => {
-    alert("Tap anywhere once to start the music.");
+  music.play().catch(() => {
+    document.addEventListener(
+      "click",
+      () => music.play(),
+      { once: true }
+    );
   });
-}
 
   current = 0;
   renderPage();
@@ -130,8 +131,8 @@ function renderPage() {
     }
 
     pageBox.innerHTML = html;
-
     pageBox.classList.remove("fade");
+
   }, 200);
 }
 
@@ -139,6 +140,7 @@ function renderPage() {
 document.addEventListener("click", (e) => {
   if (e.target && e.target.id === "nextBtn") {
     current++;
+
     if (current < pages.length) {
       renderPage();
     }
