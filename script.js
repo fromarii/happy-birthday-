@@ -54,6 +54,7 @@ let current = 0;
 const cover = document.querySelector(".cover");
 const pageBox = document.querySelector(".page");
 const openBtn = document.getElementById("openBtn");
+const music = document.getElementById("bgMusic");
 
 /* OPEN BUTTON */
 openBtn.addEventListener("click", () => {
