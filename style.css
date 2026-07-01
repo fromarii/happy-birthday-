@@ -368,3 +368,58 @@ img {
 .cake-page button:hover {
   transform: translateY(-2px);
   box-shadow: 0 6px 15px rgba(0,0,0,.2);
+}
+
+#message {
+    margin-top: 30px;
+    opacity: 0;
+    transition: .5s;
+    color: #5f4635;
+    font-size: 20px;
+}
+
+/* ================= CONFETTI ================= */
+
+.confetti {
+    position: fixed;
+    width: 10px;
+    height: 14px;
+    top: -20px;
+    opacity: .9;
+    animation: fall linear forwards;
+    z-index: 9999;
+    pointer-events: none;
+}
+
+@keyframes fall {
+    from {
+        transform: translateY(-10vh) rotate(0deg);
+    }
+
+    to {
+        transform: translateY(110vh) rotate(720deg);
+    }
+}
+
+/* ================= MOBILE ================= */
+
+@media (max-width: 600px) {
+
+    .cake {
+        transform: scale(.82);
+    }
+
+    .cake-page h1 {
+        font-size: 1.7rem;
+        margin-bottom: 45px;
+    }
+
+    #message {
+        font-size: 18px;
+    }
+
+    img {
+        width: 220px;
+    }
+
+}
