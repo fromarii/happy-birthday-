@@ -18,94 +18,183 @@ body{
 }
 
 h1{
-    margin-bottom:40px;
+    margin-bottom:60px;
     color:#5f4635;
+    font-size:2rem;
 }
 
 .cake{
     position:relative;
-    width:320px;
+    width:340px;
     margin:auto;
+    padding-top:100px;
 }
+
+/* ================= CANDLES ================= */
 
 .candles{
     position:absolute;
-    top:-90px;
+    top:0;
     left:50%;
     transform:translateX(-50%);
-    width:260px;
+    width:250px;
     display:flex;
-    flex-wrap:wrap;
     justify-content:center;
-    gap:8px;
+    flex-wrap:wrap;
+    gap:6px;
 }
 
 .candle{
-    position:relative;
     width:8px;
-    height:40px;
-    background:#fff;
-    border-radius:4px;
+    height:38px;
+    background:
+    repeating-linear-gradient(
+        45deg,
+        #fff,
+        #fff 4px,
+        #f5c7d5 4px,
+        #f5c7d5 8px
+    );
+    border-radius:5px;
+    position:relative;
+    box-shadow:0 0 3px rgba(0,0,0,.2);
 }
 
 .flame{
     position:absolute;
-    width:10px;
-    height:14px;
-    background:#ffbf00;
-    border-radius:50% 50% 50% 50%;
     left:50%;
+    top:-15px;
     transform:translateX(-50%);
-    top:-12px;
+    width:11px;
+    height:16px;
+    background:radial-gradient(circle,#fff8b0 10%,#ffbf00 60%,#ff8a00 100%);
+    border-radius:50% 50% 50% 50%;
     animation:flicker .4s infinite alternate;
+    box-shadow:0 0 10px #ffd65a;
 }
 
 @keyframes flicker{
     from{
-        transform:translateX(-50%) scale(1);
+        transform:translateX(-50%) rotate(-2deg) scale(1);
     }
     to{
-        transform:translateX(-50%) scale(.8);
+        transform:translateX(-50%) rotate(2deg) scale(.9);
     }
+}
+
+/* ================= TIERS ================= */
+
+.top,
+.middle,
+.bottom{
+    position:relative;
+    margin:auto;
+    border-radius:18px;
+    overflow:hidden;
 }
 
 .top{
-    width:260px;
-    height:70px;
-    background:#f6e8d5;
-    border-radius:15px;
-    margin:auto;
+    width:180px;
+    height:95px;
+    background:linear-gradient(to bottom,#fffdf9,#f7ede2);
+    box-shadow:
+    inset 0 -8px 0 rgba(232,208,188,.6),
+    0 5px 12px rgba(0,0,0,.12);
+    z-index:3;
 }
 
 .middle{
-    width:290px;
-    height:80px;
-    background:#f1dcc1;
-    border-radius:15px;
-    margin:auto;
+    width:250px;
+    height:110px;
+    background:linear-gradient(to bottom,#fffaf5,#f2e3d2);
+    margin-top:-8px;
+    box-shadow:
+    inset 0 -10px 0 rgba(226,198,173,.6),
+    0 5px 12px rgba(0,0,0,.12);
+    z-index:2;
 }
 
 .bottom{
     width:320px;
-    height:90px;
-    background:#e6c8a5;
-    border-radius:15px;
-    margin:auto;
+    height:125px;
+    background:linear-gradient(to bottom,#fff8f0,#edd7bf);
+    margin-top:-8px;
+    box-shadow:
+    inset 0 -12px 0 rgba(210,180,150,.5),
+    0 8px 18px rgba(0,0,0,.15);
+    z-index:1;
 }
 
+/* ================= ICING ================= */
+
+.top::before,
+.middle::before,
+.bottom::before{
+    content:"";
+    position:absolute;
+    top:0;
+    left:0;
+    width:100%;
+    height:22px;
+    background:white;
+    border-radius:0 0 16px 16px;
+}
+
+.top::after,
+.middle::after,
+.bottom::after{
+    content:"";
+    position:absolute;
+    left:0;
+    bottom:8px;
+    width:100%;
+    height:12px;
+    background:
+    radial-gradient(circle at 8px,#f8d7df 4px,transparent 5px)
+    repeat-x;
+    background-size:20px 12px;
+}
+
+/* ================= CAKE BOARD ================= */
+
+.bottom{
+    margin-bottom:18px;
+}
+
+.bottom + .board{
+    display:none;
+}
+
+.cake::after{
+    content:"";
+    position:absolute;
+    bottom:-18px;
+    left:50%;
+    transform:translateX(-50%);
+    width:360px;
+    height:18px;
+    background:#d8c4ab;
+    border-radius:50%;
+    box-shadow:0 5px 12px rgba(0,0,0,.18);
+}
+
+/* ================= BUTTON ================= */
+
 button{
-    margin-top:50px;
-    padding:12px 28px;
+    margin-top:55px;
+    padding:13px 34px;
     border:none;
     border-radius:30px;
     background:#7d5b45;
     color:white;
-    cursor:pointer;
     font-size:16px;
+    cursor:pointer;
+    transition:.3s;
 }
 
 button:hover{
-    opacity:.9;
+    transform:translateY(-2px);
+    box-shadow:0 6px 15px rgba(0,0,0,.2);
 }
 
 #message{
@@ -114,4 +203,24 @@ button:hover{
     transition:.5s;
     color:#5f4635;
     font-size:20px;
+}
+/* ================= CONFETTI ================= */
+
+.confetti{
+    position:fixed;
+    width:10px;
+    height:14px;
+    top:-20px;
+    opacity:.9;
+    animation:fall linear forwards;
+    z-index:9999;
+}
+
+@keyframes fall{
+    from{
+        transform:translateY(-10vh) rotate(0deg);
+    }
+    to{
+        transform:translateY(110vh) rotate(720deg);
+    }
 }
